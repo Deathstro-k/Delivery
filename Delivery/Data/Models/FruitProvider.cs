@@ -9,6 +9,6 @@ namespace Delivery.Models
         /// Наименование поставщика фруктов
         /// </summary>
         public string Name { get; set; }
-        public Product Product { get; set; }
+        public List<Product> Products { get; set; } = new List<Product>();    
     }
 }

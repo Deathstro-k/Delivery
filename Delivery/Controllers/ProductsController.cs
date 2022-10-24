@@ -49,8 +49,8 @@ namespace Delivery.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "Id", "Id");
-            ViewData["FruitProviderId"] = new SelectList(_context.FruitProviders, "Id", "Id");
+            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "Id", "Name");
+            ViewData["FruitProviderId"] = new SelectList(_context.FruitProviders, "Id", "Name");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace Delivery.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "Id", "Id", product.CategoryId);
-            ViewData["FruitProviderId"] = new SelectList(_context.FruitProviders, "Id", "Id", product.FruitProviderId);
+            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "Id", "Name", product.CategoryId);
+            ViewData["FruitProviderId"] = new SelectList(_context.FruitProviders, "Id", "Name", product.FruitProviderId);
             return View(product);
         }
 
@@ -85,8 +85,8 @@ namespace Delivery.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "Id", "Id", product.CategoryId);
-            ViewData["FruitProviderId"] = new SelectList(_context.FruitProviders, "Id", "Id", product.FruitProviderId);
+            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "Id", "Name", product.CategoryId);
+            ViewData["FruitProviderId"] = new SelectList(_context.FruitProviders, "Id", "Name", product.FruitProviderId);
             return View(product);
         }
 
@@ -122,8 +122,8 @@ namespace Delivery.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "Id", "Id", product.CategoryId);
-            ViewData["FruitProviderId"] = new SelectList(_context.FruitProviders, "Id", "Id", product.FruitProviderId);
+            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "Id", "Name", product.CategoryId);
+            ViewData["FruitProviderId"] = new SelectList(_context.FruitProviders, "Id", "Name", product.FruitProviderId);
             return View(product);
         }
 

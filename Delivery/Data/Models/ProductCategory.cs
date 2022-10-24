@@ -9,7 +9,7 @@ namespace Delivery.Models
         /// Наименование категории товара
         /// </summary>
         public string Name { get; set; }
-        public Product Product { get; set; }
+        public List<Product> Products { get; set; } = new List<Product>();  
 
     }
 
