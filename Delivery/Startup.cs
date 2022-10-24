@@ -35,7 +35,7 @@ namespace Delivery
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,DataContext dataContext)
         {
             if (env.IsDevelopment())
             {
@@ -51,7 +51,8 @@ namespace Delivery
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
-            app.UseMvc(r => r.MapRoute("default", "{controller=Orders}/{Action=Index}"));            
+            app.UseMvc(r => r.MapRoute("default", "{controller=Orders}/{Action=Index}"));
+            dataContext.Database.Migrate();
         }
     }
 }

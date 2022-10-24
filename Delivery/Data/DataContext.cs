@@ -10,7 +10,8 @@ namespace Delivery.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-
+          
+            
         }
         public DbSet<FruitProvider> FruitProviders { get; set; }      
         public DbSet<ProductCategory> ProductCategories { get; set; }       
