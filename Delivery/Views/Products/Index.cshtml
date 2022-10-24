@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Delivery.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Товары</h1>
+
+<p>
+    <a asp-action="Create">Добавить товар</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Наименование
+            </th>
+            <th>
+                Категория
+            </th>
+            <th>
+                Поставщик
+            </th>
+            <th>
+                Вес поставки
+            </th>
+            <th>
+                Цена поставки
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FruitProvider.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+          
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |                
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

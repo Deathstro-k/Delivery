@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Order>
+
+@{
+    ViewData["Title"] = "Список поставок";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Список поставок</h1>
+
+<p>
+    <a asp-action="Create">Создать заказ</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Товар
+            </th>
+            <th>
+                Период поставки(мес.)
+            </th>
+            <th>
+                Регистрация поставки
+            </th>
+            <th>
+                Окончание поставки
+            </th>
+     
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+        
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,69 @@
+﻿@model IQueryable<Report>
+
+@{
+    ViewData["Title"] = "Список поставок";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Список поставок</h1>
+
+<input type="date"  id="From" name="trip-start"
+       value="2022-07-23">
+
+<input type="date"  id="To" name="trip-start2"
+       value="2022-07-25">
+ @{ 
+     
+ }
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Товар
+            </th>
+            <th>
+                Период поставки(мес.)
+            </th>
+            <th>
+                Регистрация поставки
+            </th>
+            <th>
+                Окончание поставки
+            </th>
+              <th>
+            Вес поставки
+            </th>
+            <th>
+            Цена поставки
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeliveryTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalWeight)
+                </td>
+                <td>
+                     @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>              
+            </tr>
+        }
+    </tbody>
+</table>
+
